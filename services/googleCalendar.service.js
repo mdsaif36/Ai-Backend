@@ -2,8 +2,8 @@ const { google } = require("googleapis");
 const fs = require("fs");
 const path = require("path");
 
-// --- Define the path to the token file in the application's root directory ---
-const TOKEN_PATH = path.join(process.cwd(), "token.json");
+const os = require('os');
+const TOKEN_PATH = path.join(os.tmpdir(), "token.json"); // FIX: Point to the temporary directory
 
 // --- Create the OAuth2 client using environment variables ---
 const oAuth2Client = new google.auth.OAuth2(
